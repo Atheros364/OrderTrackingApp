@@ -15,6 +15,8 @@ namespace OrderTrackingApp.ViewModels
         List<DefaultItem> itemTypeObjects = new List<DefaultItem>();
         List<string> itemTypes = new List<string>();
         string selectedItemType;
+        List<string> clientNames = new List<string>();
+        string selectedClientName;
         decimal price = 0;
         int amount = 0;
         ObservableCollection<InventoryOrderItem> addedItems = new ObservableCollection<InventoryOrderItem>();
@@ -42,6 +44,39 @@ namespace OrderTrackingApp.ViewModels
                 {
                     itemTypes = value;
                     OnPropertyChanged(nameof(ItemTypes));
+                }
+            }
+        }
+
+        public List<string> ClientNames
+        {
+            get
+            {
+                return clientNames;
+            }
+            set
+            {
+                if (clientNames != value)
+                {
+                    clientNames = value;
+                    OnPropertyChanged(nameof(ClientNames));
+                }
+            }
+        }
+
+        public string SelectedClientName
+        {
+            get
+            {
+                return selectedClientName;
+            }
+            set
+            {
+                if (selectedClientName != value)
+                {
+                    selectedClientName = value;
+                    OnPropertyChanged(nameof(SelectedClientName));
+                    FillNameBox();
                 }
             }
         }
@@ -191,6 +226,9 @@ namespace OrderTrackingApp.ViewModels
             {
                 SelectedItemType = ItemTypes[0];
             }
+
+            ClientNames = DAL.DAL.GetClientNames();
+            SelectedClientName = string.Empty;
         }
 
         private void SetDefaults()
@@ -200,6 +238,14 @@ namespace OrderTrackingApp.ViewModels
                 DefaultItem selected = itemTypeObjects.First(p => p.Name == SelectedItemType);
                 Price = selected.DefaultBuyPrice;
                 Amount = selected.DefaultOrderSize;
+            }
+        }
+
+        private void FillNameBox()
+        {
+            if (SelectedClientName != string.Empty)
+            {
+                Name = SelectedClientName;
             }
         }
 

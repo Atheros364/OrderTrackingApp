@@ -15,6 +15,7 @@ namespace OrderTrackingApp.ViewModels
         List<Order> orders;
         ObservableCollection<OrderModel> historyItems = new ObservableCollection<OrderModel>();
         bool isShowingPayed = false;
+        string searchText = string.Empty;
         INavigation Nav;
         public OrderHistoryViewModel(INavigation nav)
         {
@@ -54,10 +55,27 @@ namespace OrderTrackingApp.ViewModels
             }
         }
 
+        public string SearchText
+        {
+            get
+            {
+                return searchText;
+            }
+            set
+            {
+                if (searchText != value)
+                {
+                    searchText = value;
+                    OnPropertyChanged(nameof(SearchText));
+                }
+            }
+        }
+
         public ICommand DeleteItemButtonClick { protected set; get; }
         public ICommand PayItemButtonClick { protected set; get; }
         public ICommand ShowOpenButtonClick { protected set; get; }
         public ICommand ShowClosedButtonClick { protected set; get; }
+        public ICommand SearchButtonClick { protected set; get; }
 
         private void Initialize()
         {
@@ -83,6 +101,11 @@ namespace OrderTrackingApp.ViewModels
                 IsShowingPayed = true;
                 RefreshItems();
             });
+            SearchButtonClick = new Command(() =>
+            {
+                IsShowingPayed = true;
+                RefreshItems();
+            });
             MessagingCenter.Subscribe<ClientOrderViewModel>(this, "ProductChange", (sender) =>
             {
                 RefreshItems();
@@ -93,6 +116,12 @@ namespace OrderTrackingApp.ViewModels
         {
             HistoryItems.Clear();
             orders = DAL.DAL.GetClientOrders(isShowingPayed);
+
+            if (!String.IsNullOrEmpty(SearchText))
+            {
+                orders = orders.Where(o => o.ClientName.Contains(SearchText)).ToList();
+            }
+
             orders.Reverse();
             foreach (Order item in orders)
             {

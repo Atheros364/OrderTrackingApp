@@ -25,7 +25,7 @@
             <Button x:Name="BtnNewOrder" Grid.Row="4" Text="Create New Order" Command="{Binding NewOrderButtonClick}" Margin="30,0,30,0"/>
             <Button x:Name="BtnOrderHistory" Grid.Row="6" Text="Order History" Command="{Binding OrderHistoryButtonClick}" Margin="30,0,30,0"/>
             <Button x:Name="BtnReports" Grid.Row="8" Text="View Reports" Command="{Binding ReportsButtonClick}" Margin="30,0,30,0"/>
-            <Button x:Name="BtnSettings" Grid.Row="10" Text="Settings" Command="{Binding SettingsButtonClick}" Margin="30,0,30,0"/>
+            <Button x:Name="BtnProducts" Grid.Row="10" Text="Products" Command="{Binding ProductsButtonClick}" Margin="30,0,30,0"/>
 
         </Grid>
     </StackLayout>

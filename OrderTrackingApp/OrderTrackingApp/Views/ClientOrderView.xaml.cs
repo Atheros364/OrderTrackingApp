@@ -18,5 +18,10 @@ namespace OrderTrackingApp.Views
             InitializeComponent();
             BindingContext = new ClientOrderViewModel(Navigation);
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            namePicker.Focus();
+        }
     }
 }

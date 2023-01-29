@@ -39,14 +39,14 @@ namespace OrderTrackingApp.ViewModels
         private void InitializeLanguages()
         {
             languageItems.Clear();
-            languageItems.Add("English");
             languageItems.Add("Tiếng Việt");
-            selectedLanguage= LanguageItems[0];
-            SetLanguage();
+            languageItems.Add("English");
+            SelectedLanguage = DAL.DAL.GetLanguage();
         }
 
         private void SetLanguage()
         {
+            DAL.DAL.SetLanguage(SelectedLanguage);
             //TODO change localization file
         }
 

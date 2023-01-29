@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:OrderTrackingApp.Resx"
              x:Class="OrderTrackingApp.Views.AddProductView">
     <ContentPage.Content>
         <StackLayout>
@@ -10,7 +11,7 @@
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="Product Name:" VerticalOptions="Center"/>
+                <Label Text="{x:Static resources:AppResources.ProductName}" VerticalOptions="Center"/>
                 <Entry Text="{Binding Name}" Grid.Column="2" MaxLength="50" VerticalOptions="Center"/>
             </Grid>
             <StackLayout  Margin="10,0,10,0">

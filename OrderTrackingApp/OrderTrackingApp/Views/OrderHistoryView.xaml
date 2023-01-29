@@ -14,15 +14,21 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackLayout Orientation="Horizontal" Margin="20, 10">
+            <StackLayout Orientation="Horizontal" Margin="20, 10,20,0">
                 <Button Text="Open Orders" Command="{Binding ShowOpenButtonClick}" IsEnabled="{Binding IsShowingPayed}" HorizontalOptions="StartAndExpand"/>
                 <Button Text="Closed Orders" Command="{Binding ShowClosedButtonClick}" IsEnabled="{Binding IsShowingPayed, Converter={StaticResource InvertedBoolConverter}}" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
 
-            <ListView Grid.Row="1" ItemsSource="{Binding HistoryItems}" SelectionMode="None" HorizontalOptions="Fill" Margin="10" VerticalOptions="Fill" HasUnevenRows="True">
+            <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="20,0">
+                <Entry Text="{Binding SearchText}" HorizontalOptions="FillAndExpand"/>
+                <Button Text="Search" Command="{Binding SearchButtonClick}" HorizontalOptions="End"/>
+            </StackLayout>
+
+            <ListView Grid.Row="2" ItemsSource="{Binding HistoryItems}" SelectionMode="None" HorizontalOptions="Fill" Margin="10" VerticalOptions="Fill" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

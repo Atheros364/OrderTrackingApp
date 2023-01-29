@@ -28,7 +28,7 @@ namespace OrderTrackingApp.ViewModels
         public ICommand NewOrderButtonClick { protected set; get; }
         public ICommand OrderHistoryButtonClick { protected set; get; }
         public ICommand ReportsButtonClick { protected set; get; }
-        public ICommand SettingsButtonClick { protected set; get; }
+        public ICommand ProductsButtonClick { protected set; get; }
 
         private void InitializeButtons()
         {
@@ -48,9 +48,9 @@ namespace OrderTrackingApp.ViewModels
             {
                 await Nav.PushAsync(new ReportsView());
             });
-            SettingsButtonClick = new Command(async () =>
+            ProductsButtonClick = new Command(async () =>
             {
-                await Nav.PushAsync(new SettingsView());
+                await Nav.PushAsync(new ProductsView());
             });
         }
 
