@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrderTrackingApp.Views.AddProductView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="10,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Product Name:" VerticalOptions="Center"/>
+                <Entry Text="{Binding Name}" Grid.Column="2" MaxLength="50" VerticalOptions="Center"/>
+            </Grid>
+            <StackLayout  Margin="10,0,10,0">
+                <Label Text="Description:"/>
+                <Editor Placeholder="Description" Text="{Binding Description}" MaxLength="500"/>
+            </StackLayout>
+            <Grid Margin="10,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Buy Price:"/>
+                <Entry Text="{Binding BuyPrice}" Grid.Column="2" Keyboard="Numeric"/>
+            </Grid>
+            <Grid Margin="10,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Sell Price:"/>
+                <Entry Text="{Binding SellPrice}" Grid.Column="2" Keyboard="Numeric"/>
+            </Grid>
+            <Grid Margin="10,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Purchase Size:"/>
+                <Entry Text="{Binding PurchaseSize}" Grid.Column="2" Keyboard="Numeric"/>
+            </Grid>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Save" Command="{Binding SaveButtonClick}"/>
+                <Button Text="Cancel" Command="{Binding CancelButtonClick}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

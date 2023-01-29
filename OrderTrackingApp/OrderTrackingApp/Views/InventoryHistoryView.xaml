@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrderTrackingApp.Views.InventoryHistoryView"
+             x:Name="inventoryHistoryView">
+    <ContentPage.Content>
+        <ListView Grid.Row="2" ItemsSource="{Binding HistoryItems}" SelectionMode="None" HorizontalOptions="Fill" Margin="10" VerticalOptions="Fill" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="LightGray" Margin="5">
+                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="1" Padding="5" BackgroundColor="White">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
+                                    <Label Text="{Binding Date}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                    <Button Text="Remove" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference inventoryHistoryView}}" CommandParameter="{Binding Id}"/>
+                                </StackLayout>
+                                <StackLayout VerticalOptions="FillAndExpand">
+                                    <ListView Grid.Row="1" ItemsSource="{Binding Items}" SelectionMode="None" Margin="20, 0"  VerticalOptions="Center" RowHeight="30">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+                                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                                        <Label Text="{Binding Price}"/>
+                                                        <Label Text="{Binding Amount}"/>
+                                                        <Label Text="{Binding Name}"/>
+                                                    </StackLayout>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackLayout>
+                                <Label Text="{Binding TotalPrice}" HorizontalOptions="End" Margin="10"  VerticalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
