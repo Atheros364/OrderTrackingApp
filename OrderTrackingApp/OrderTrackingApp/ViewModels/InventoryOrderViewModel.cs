@@ -226,7 +226,7 @@ namespace OrderTrackingApp.ViewModels
             order.Items = new List<OrderItem>();
             foreach(InventoryOrderItem item in addedItems)
             {
-                DefaultItem defaultItem = itemTypeObjects.First(p => p.Name == SelectedItemType);
+                DefaultItem defaultItem = itemTypeObjects.First(p => p.Name == item.Name);
                 OrderItem orderItem = new OrderItem();
                 orderItem.DefaultItemId = defaultItem.Id;
                 orderItem.ItemName = defaultItem.Name;

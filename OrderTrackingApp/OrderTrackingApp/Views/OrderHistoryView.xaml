@@ -1,12 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OrderTrackingApp.Views.OrderHistoryView">
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="OrderTrackingApp.Views.OrderHistoryView"
+             x:Name="clientHistoryView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Orientation="Horizontal" Margin="20, 10">
+                <Button Text="Open Orders" Command="{Binding ShowOpenButtonClick}" IsEnabled="{Binding IsShowingPayed}" HorizontalOptions="StartAndExpand"/>
+                <Button Text="Closed Orders" Command="{Binding ShowClosedButtonClick}" IsEnabled="{Binding IsShowingPayed, Converter={StaticResource InvertedBoolConverter}}" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+
+            <ListView Grid.Row="1" ItemsSource="{Binding HistoryItems}" SelectionMode="None" HorizontalOptions="Fill" Margin="10" VerticalOptions="Fill" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="LightGray" Margin="5">
+                                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="1" Padding="5" BackgroundColor="White">
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
+                                        <Label Text="{Binding Date}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                        <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                        <Button Text="Pay Order" IsVisible="{Binding IsOpen}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Command="{Binding BindingContext.PayItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
+                                        <Button Text="Remove" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="FillAndExpand">
+                                        <ListView Grid.Row="1" ItemsSource="{Binding Items}" SelectionMode="None" Margin="20, 0"  VerticalOptions="Center" RowHeight="30">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                                            <Label Text="{Binding Price}"/>
+                                                            <Label Text="{Binding Amount}"/>
+                                                            <Label Text="{Binding Name}"/>
+                                                        </StackLayout>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </StackLayout>
+                                    <Label Text="{Binding TotalPrice}" HorizontalOptions="End" Margin="10"  VerticalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Text;
+using Xamarin.Forms;
 
 namespace OrderTrackingApp.Models
 {
@@ -11,8 +12,10 @@ namespace OrderTrackingApp.Models
     {
         int id;
         string date;
+        string name;
         decimal totalPrice;
         ObservableCollection<OrderItemModel> items;
+        bool isOpen;
 
         public int Id
         {
@@ -62,6 +65,22 @@ namespace OrderTrackingApp.Models
             }
         }
 
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if (name != value)
+                {
+                    name = value;
+                    OnPropertyChanged(nameof(Name));
+                }
+            }
+        }
+
         public ObservableCollection<OrderItemModel> Items
         {
             get
@@ -74,6 +93,22 @@ namespace OrderTrackingApp.Models
                 {
                     items = value;
                     OnPropertyChanged(nameof(Items));
+                }
+            }
+        }
+
+        public bool IsOpen
+        {
+            get
+            {
+                return isOpen;
+            }
+            set
+            {
+                if (isOpen != value)
+                {
+                    isOpen = value;
+                    OnPropertyChanged(nameof(IsOpen));
                 }
             }
         }
