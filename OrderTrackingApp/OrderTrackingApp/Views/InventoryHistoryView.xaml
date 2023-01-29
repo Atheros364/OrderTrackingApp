@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:OrderTrackingApp.Resx"
              x:Class="OrderTrackingApp.Views.InventoryHistoryView"
              x:Name="inventoryHistoryView">
     <ContentPage.Content>
@@ -12,7 +13,7 @@
                             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="1" Padding="5" BackgroundColor="White">
                                 <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
                                     <Label Text="{Binding Date}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-                                    <Button Text="Remove" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference inventoryHistoryView}}" CommandParameter="{Binding Id}"/>
+                                    <Button Text="{x:Static resources:AppResources.RemoveButton}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference inventoryHistoryView}}" CommandParameter="{Binding Id}"/>
                                 </StackLayout>
                                 <StackLayout VerticalOptions="FillAndExpand">
                                     <ListView Grid.Row="1" ItemsSource="{Binding Items}" SelectionMode="None" Margin="20, 0"  VerticalOptions="Center" RowHeight="30">

@@ -15,8 +15,8 @@
                 <Entry Text="{Binding Name}" Grid.Column="2" MaxLength="50" VerticalOptions="Center"/>
             </Grid>
             <StackLayout  Margin="10,0,10,0">
-                <Label Text="Description:"/>
-                <Editor Placeholder="Description" Text="{Binding Description}" MaxLength="500"/>
+                <Label Text="{x:Static resources:AppResources.Description}"/>
+                <Editor Text="{Binding Description}" MaxLength="500"/>
             </StackLayout>
             <Grid Margin="10,0,10,0">
                 <Grid.ColumnDefinitions>
@@ -24,7 +24,7 @@
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="Buy Price:"/>
+                <Label Text="{x:Static resources:AppResources.BuyPrice}"/>
                 <Entry Text="{Binding BuyPrice}" Grid.Column="2" Keyboard="Numeric"/>
             </Grid>
             <Grid Margin="10,0,10,0">
@@ -33,7 +33,7 @@
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="Sell Price:"/>
+                <Label Text="{x:Static resources:AppResources.SellPrice}"/>
                 <Entry Text="{Binding SellPrice}" Grid.Column="2" Keyboard="Numeric"/>
             </Grid>
             <Grid Margin="10,0,10,0">
@@ -42,12 +42,12 @@
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="Purchase Size:"/>
+                <Label Text="{x:Static resources:AppResources.PurchaseSize}"/>
                 <Entry Text="{Binding PurchaseSize}" Grid.Column="2" Keyboard="Numeric"/>
             </Grid>
             <StackLayout Orientation="Horizontal">
-                <Button Text="Save" Command="{Binding SaveButtonClick}"/>
-                <Button Text="Cancel" Command="{Binding CancelButtonClick}"/>
+                <Button Text="{x:Static resources:AppResources.SaveButton}" Command="{Binding SaveButtonClick}"/>
+                <Button Text="{x:Static resources:AppResources.CancelButton}" Command="{Binding CancelButtonClick}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

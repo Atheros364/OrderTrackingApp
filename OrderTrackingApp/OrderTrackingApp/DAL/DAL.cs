@@ -34,7 +34,6 @@ namespace OrderTrackingApp.DAL
                 db.CreateTable(typeof(InventoryItem));
                 db.CreateTable(typeof(Order));
                 db.CreateTable(typeof(OrderItem));
-                db.CreateTable(typeof(Config));
             }
             
             return db;
@@ -47,7 +46,6 @@ namespace OrderTrackingApp.DAL
             db.DropTable<InventoryItem>();
             db.DropTable<Order>();
             db.DropTable<OrderItem>();
-            db.DropTable<Config>();
             return db;
         }
 
@@ -455,73 +453,6 @@ namespace OrderTrackingApp.DAL
         #region Dashboard
         //TODO Read for dashboard
         #endregion Dashboard
-
-        #region Config
-
-        public static bool SetLanguage(string language)
-        {
-            bool saved = false;
-            try
-            {
-                using (var db = InitializeDatabase())
-                {
-                    int row = 0;
-                    string sql = "SELECT * FROM [Configs] WHERE name == 'CurrentLanguage'";
-                    Config item = db.Query<Config>(sql).FirstOrDefault();
-                    if(item == null)
-                    {
-                        item = new Config();
-                        item.Name = "CurrentLanguage";
-                        item.Value = language;
-                        row = db.Insert(item);
-                    }
-                    else
-                    {
-                        item.Value = language;
-                        row = db.Update(item);
-                    }
-                    
-                    if (row > 0)
-                    {
-                        saved = true;
-                    }
-                    else
-                    {
-                        WriteDBError("Failed inserting Config: " + item.ToString());
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                WriteDBError(ex.ToString());
-            }
-            return saved;
-        }
-
-        public static string GetLanguage()
-        {
-            string result = "Tiếng Việt";
-            try
-            {
-                using (var db = InitializeDatabase())
-                {
-                    var temp = db.Query<SingleString>("SELECT value as value FROM [Configs] WHERE name == 'CurrentLanguage'").FirstOrDefault();
-                    if (temp != null && !string.IsNullOrEmpty(temp.value)) 
-                    {
-                        result = temp.value;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                WriteDBError(ex.ToString());
-            }
-
-            return result;
-        }
-
-        #endregion Config
-
 
     }
 

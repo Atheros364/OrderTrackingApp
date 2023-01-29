@@ -1,9 +1,7 @@
-﻿using OrderTrackingApp.ViewModels;
+﻿using OrderTrackingApp.Resx;
+using OrderTrackingApp.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,15 +14,15 @@ namespace OrderTrackingApp.Views
         public InventoryMainView()
         {
             NavigationPage inventoryPage = new NavigationPage(new InventoryView());
-            inventoryPage.Title = "Inventory";
+            inventoryPage.Title = AppResources.InventoryTab;
             Children.Add(inventoryPage);
 
             NavigationPage historyPage = new NavigationPage(new InventoryHistoryView());
-            historyPage.Title = "Order History";
+            historyPage.Title = AppResources.HistoryTab;
             Children.Add(historyPage);
 
             NavigationPage orderPage = new NavigationPage(new InventoryOrderView());
-            orderPage.Title = "Order";
+            orderPage.Title = AppResources.OrderTab;
             Children.Add(orderPage);
 
             MessagingCenter.Subscribe<InventoryOrderViewModel>(this, "GoToInventory", (sender) =>

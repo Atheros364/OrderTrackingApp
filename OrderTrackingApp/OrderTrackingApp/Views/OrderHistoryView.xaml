@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:resources="clr-namespace:OrderTrackingApp.Resx"
              x:Class="OrderTrackingApp.Views.OrderHistoryView"
              x:Name="clientHistoryView">
     <ContentPage.Resources>
@@ -19,13 +20,13 @@
             </Grid.RowDefinitions>
 
             <StackLayout Orientation="Horizontal" Margin="20, 10,20,0">
-                <Button Text="Open Orders" Command="{Binding ShowOpenButtonClick}" IsEnabled="{Binding IsShowingPayed}" HorizontalOptions="StartAndExpand"/>
-                <Button Text="Closed Orders" Command="{Binding ShowClosedButtonClick}" IsEnabled="{Binding IsShowingPayed, Converter={StaticResource InvertedBoolConverter}}" HorizontalOptions="EndAndExpand"/>
+                <Button Text="{x:Static resources:AppResources.OpenOrdersButton}" Command="{Binding ShowOpenButtonClick}" IsEnabled="{Binding IsShowingPayed}" HorizontalOptions="StartAndExpand"/>
+                <Button Text="{x:Static resources:AppResources.ClosedOrdersButton}" Command="{Binding ShowClosedButtonClick}" IsEnabled="{Binding IsShowingPayed, Converter={StaticResource InvertedBoolConverter}}" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
 
             <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="20,0">
                 <Entry Text="{Binding SearchText}" HorizontalOptions="FillAndExpand"/>
-                <Button Text="Search" Command="{Binding SearchButtonClick}" HorizontalOptions="End"/>
+                <Button Text="{x:Static resources:AppResources.SearchButton}" Command="{Binding SearchButtonClick}" HorizontalOptions="End"/>
             </StackLayout>
 
             <ListView Grid.Row="2" ItemsSource="{Binding HistoryItems}" SelectionMode="None" HorizontalOptions="Fill" Margin="10" VerticalOptions="Fill" HasUnevenRows="True">
@@ -37,8 +38,8 @@
                                     <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
                                         <Label Text="{Binding Date}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
                                         <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-                                        <Button Text="Pay Order" IsVisible="{Binding IsOpen}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Command="{Binding BindingContext.PayItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
-                                        <Button Text="Remove" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
+                                        <Button Text="{x:Static resources:AppResources.PayOrderButton}" IsVisible="{Binding IsOpen}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Command="{Binding BindingContext.PayItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
+                                        <Button Text="{x:Static resources:AppResources.RemoveButton}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
                                     </StackLayout>
                                     <StackLayout VerticalOptions="FillAndExpand">
                                         <ListView Grid.Row="1" ItemsSource="{Binding Items}" SelectionMode="None" Margin="20, 0"  VerticalOptions="Center" RowHeight="30">

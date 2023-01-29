@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:OrderTrackingApp.Resx"
              x:Class="OrderTrackingApp.Views.EditInventoryView">
     <ContentPage.Content>
         <StackLayout>
@@ -10,7 +11,7 @@
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="Product Name:" VerticalOptions="Center"/>
+                <Label Text="{x:Static resources:AppResources.ProductName}" VerticalOptions="Center"/>
                 <Entry Text="{Binding Name}" Grid.Column="2" MaxLength="50" VerticalOptions="Center" IsReadOnly="True"/>
             </Grid>
             <Grid Margin="10,0,10,0">
@@ -19,12 +20,12 @@
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="Count:"/>
+                <Label Text="{x:Static resources:AppResources.Count}"/>
                 <Entry Text="{Binding Count}" Grid.Column="2" Keyboard="Numeric"/>
             </Grid>
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                <Button Text="Save" Command="{Binding SaveButtonClick}"/>
-                <Button Text="Cancel" Command="{Binding CancelButtonClick}"/>
+                <Button Text="{x:Static resources:AppResources.SaveButton}" Command="{Binding SaveButtonClick}"/>
+                <Button Text="{x:Static resources:AppResources.CancelButton}" Command="{Binding CancelButtonClick}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

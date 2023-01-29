@@ -117,11 +117,53 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount:</value>
+  </data>
   <data name="BuyPrice" xml:space="preserve">
     <value>Buy Price:</value>
   </data>
   <data name="CancelButton" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="ClientName" xml:space="preserve">
+    <value>Client Name:</value>
+  </data>
+  <data name="ClosedOrdersButton" xml:space="preserve">
+    <value>Closed Orders</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Count:</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="EditButton" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="HistoryTab" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="InventoryTab" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="OpenOrdersButton" xml:space="preserve">
+    <value>Open Orders</value>
+  </data>
+  <data name="OrderTab" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="PayOrderButton" xml:space="preserve">
+    <value>Pay Order</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price:</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
   </data>
   <data name="ProductName" xml:space="preserve">
     <value>Product Name:</value>
@@ -129,8 +171,14 @@
   <data name="PurchaseSize" xml:space="preserve">
     <value>Purchase Size:</value>
   </data>
+  <data name="RemoveButton" xml:space="preserve">
+    <value>Remove</value>
+  </data>
   <data name="SaveButton" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="SellPrice" xml:space="preserve">
     <value>Sell Price:</value>
