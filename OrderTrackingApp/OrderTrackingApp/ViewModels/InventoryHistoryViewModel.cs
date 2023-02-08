@@ -1,5 +1,6 @@
 ﻿using OrderTrackingApp.Models;
 using OrderTrackingApp.Objects;
+using OrderTrackingApp.Resx;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -43,11 +44,15 @@ namespace OrderTrackingApp.ViewModels
 
         private void Initialize()
         {
-            DeleteItemButtonClick = new Command<int>((id) =>
+            DeleteItemButtonClick = new Command<int>(async (id) =>
             {
-                Order item = orders.First(p => p.Id == id);
-                DAL.DAL.DeleteOrder(item);
-                RefreshItems();
+                var confirmed = await Application.Current.MainPage.DisplayAlert(AppResources.ConfirmTtile, AppResources.DeleteConfirmationMsg, AppResources.Yes, AppResources.No);
+                if (confirmed)
+                {
+                    Order item = orders.First(p => p.Id == id);
+                    DAL.DAL.DeleteOrder(item);
+                    RefreshItems();
+                }                
             });
             MessagingCenter.Subscribe<InventoryOrderViewModel>(this, "ProductChange", (sender) =>
             {

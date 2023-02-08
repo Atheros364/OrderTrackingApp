@@ -59,7 +59,7 @@
                                         <ColumnDefinition Width="10"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding Price}"/>
+                                    <Label Text="{Binding PriceString}"/>
                                     <Label Grid.Column="2" Text="{Binding Count}"/>
                                     <Label Grid.Column="4" Text="{Binding Name}"/>
                                     <Button Grid.Column="6" Text="{x:Static resources:AppResources.RemoveButton}" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference clientOrderView}}" CommandParameter="{Binding Name}" Margin="0,0,5,0"/>

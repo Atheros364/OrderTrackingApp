@@ -5,6 +5,9 @@ using OrderTrackingApp.Objects;
 using System.IO;
 using SQLiteNetExtensions.Extensions;
 using System.Linq;
+using OrderTrackingApp.Resx;
+using System.Text;
+using OrderTrackingApp.DAL.ReportObjects;
 
 namespace OrderTrackingApp.DAL
 {
@@ -419,6 +422,24 @@ namespace OrderTrackingApp.DAL
             return items;
         }
 
+        public static List<Order> GetOrders(DateTime start, DateTime end)
+        {
+            List<Order> items = new List<Order>();
+            try
+            {
+                using (var db = InitializeDatabase())
+                {
+                    items = db.GetAllWithChildren<Order>(o => o.OrderDate >= start && o.OrderDate <= end);
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteDBError(ex.ToString());
+            }
+
+            return items;
+        }
+
         public static List<string> GetClientNames()
         {
             List<string> items = new List<string>();
@@ -447,11 +468,106 @@ namespace OrderTrackingApp.DAL
         #endregion Orders
 
         #region Reports
-        //TODO Read for reports
+
+        private static List<Order> GetFilteredOrders(DateTime start, DateTime end, bool IsClient)
+        {
+            List<Order> orders = new List<Order>();
+
+            try
+            {
+                using (var db = InitializeDatabase())
+                {
+                    orders = db.GetAllWithChildren<Order>(o => o.IsClientOrder == IsClient && o.OrderDate >= start && o.OrderDate <= end);
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteDBError(ex.ToString());
+            }
+
+            return orders;
+        }
+
+        public static string CreateInventoryReport(DateTime startDate, DateTime endDate, List<DefaultItem> products)
+        {
+            return InventoryReportGen.CreateInventoryReport(startDate, endDate, products);
+        }
+
+        public static string CreateClientReport(DateTime startDate, DateTime endDate, List<string> clients)
+        {
+            return ClientReportGen.CreateClientReport(startDate, endDate, clients);
+        }
+
         #endregion Reports
 
         #region Dashboard
-        //TODO Read for dashboard
+        public static List<string> GetDashboardItems()
+        {
+            List<string> items = new List<string>();
+            items.Add(GetMonthRevenue());
+            items.Add(GetMonthOrderCount());
+            items.Add(GetOpenOrderCount());
+            items.Add(GetOpenMoneyCount());
+
+            return items;
+        }
+
+        private static string GetMonthRevenue()
+        {
+            DateTime start = DateTime.Now - new TimeSpan(31, 0, 0, 0);
+            List<Order> orders = GetFilteredOrders(start, DateTime.Now, true);
+
+            decimal money = 0;
+            foreach (Order order in orders)
+            {
+                if (order.IsPayed)
+                {
+                    foreach (OrderItem item in order.Items)
+                    {
+                        money += item.Price;
+                    }
+                }                
+            }
+
+            string result = AppResources.CurrencySymbol + money.ToString() + AppResources.DashboardMonthRevenue;
+
+            return result;
+        }
+
+        private static string GetMonthOrderCount()
+        {
+            DateTime start = DateTime.Now - new TimeSpan(31, 0, 0, 0);
+            int count = GetFilteredOrders(start, DateTime.Now, true).Count();
+            string result = count.ToString() + AppResources.DashboardMonthOrders;
+
+            return result;
+        }
+
+        private static string GetOpenOrderCount()
+        {
+            int count = GetClientOrders(false).Count();
+            string result = count.ToString() + AppResources.DashboardOpenOrders;
+
+            return result;
+        }
+
+        private static string GetOpenMoneyCount()
+        {
+            decimal money = 0;
+            List<Order> orders = GetClientOrders(false);
+
+            foreach (Order order in orders)
+            {
+                foreach(OrderItem item in order.Items)
+                {
+                     money += item.Price;
+                }
+            }
+
+            string result = AppResources.CurrencySymbol + money.ToString() + AppResources.DashboardOpenMoney;
+
+            return result;
+        }
         #endregion Dashboard
 
     }
@@ -459,5 +575,10 @@ namespace OrderTrackingApp.DAL
     internal class SingleString
     {
         public string value { get; set; }
+    }
+
+    internal class SingleInt
+    {
+        public int value { get; set; }
     }
 }

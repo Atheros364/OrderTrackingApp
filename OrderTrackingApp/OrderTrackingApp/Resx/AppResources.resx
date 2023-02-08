@@ -123,6 +123,9 @@
   <data name="Amount" xml:space="preserve">
     <value>Amount:</value>
   </data>
+  <data name="AvgProfit" xml:space="preserve">
+    <value>Profit per Unit</value>
+  </data>
   <data name="BuyPrice" xml:space="preserve">
     <value>Buy Price:</value>
   </data>
@@ -132,11 +135,41 @@
   <data name="ClientName" xml:space="preserve">
     <value>Client Name:</value>
   </data>
+  <data name="ClientReport" xml:space="preserve">
+    <value>Client Report</value>
+  </data>
+  <data name="Clients" xml:space="preserve">
+    <value>Clients:</value>
+  </data>
+  <data name="Clients2" xml:space="preserve">
+    <value>Clients</value>
+  </data>
   <data name="ClosedOrdersButton" xml:space="preserve">
     <value>Closed Orders</value>
   </data>
+  <data name="ConfirmTtile" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
   <data name="Count" xml:space="preserve">
     <value>Count:</value>
+  </data>
+  <data name="CurrencySymbol" xml:space="preserve">
+    <value>$</value>
+  </data>
+  <data name="DashboardMonthOrders" xml:space="preserve">
+    <value> - # of orders in last 30 days</value>
+  </data>
+  <data name="DashboardMonthRevenue" xml:space="preserve">
+    <value> collected in last 30 days</value>
+  </data>
+  <data name="DashboardOpenMoney" xml:space="preserve">
+    <value> In open orders</value>
+  </data>
+  <data name="DashboardOpenOrders" xml:space="preserve">
+    <value> - # of open orders</value>
+  </data>
+  <data name="DeleteConfirmationMsg" xml:space="preserve">
+    <value>Do you want to permanently delete this?</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description:</value>
@@ -144,14 +177,38 @@
   <data name="EditButton" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date:</value>
+  </data>
   <data name="HistoryTab" xml:space="preserve">
     <value>History</value>
+  </data>
+  <data name="InInventory" xml:space="preserve">
+    <value>Amount in Inventory</value>
+  </data>
+  <data name="InventoryButton" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="InventoryReport" xml:space="preserve">
+    <value>Inventory Report</value>
   </data>
   <data name="InventoryTab" xml:space="preserve">
     <value>Inventory</value>
   </data>
+  <data name="NewOrderButton" xml:space="preserve">
+    <value>Create New Order</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="OpenOrdersButton" xml:space="preserve">
     <value>Open Orders</value>
+  </data>
+  <data name="OrderHistoryButton" xml:space="preserve">
+    <value>Order History</value>
+  </data>
+  <data name="Orders" xml:space="preserve">
+    <value>Orders</value>
   </data>
   <data name="OrderTab" xml:space="preserve">
     <value>Order</value>
@@ -168,11 +225,35 @@
   <data name="ProductName" xml:space="preserve">
     <value>Product Name:</value>
   </data>
+  <data name="Products" xml:space="preserve">
+    <value>Products:</value>
+  </data>
+  <data name="ProductsButton" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="Profit" xml:space="preserve">
+    <value>Total Profit</value>
+  </data>
+  <data name="Purchased" xml:space="preserve">
+    <value>Purchased</value>
+  </data>
   <data name="PurchaseSize" xml:space="preserve">
     <value>Purchase Size:</value>
   </data>
   <data name="RemoveButton" xml:space="preserve">
     <value>Remove</value>
+  </data>
+  <data name="ReportsButton" xml:space="preserve">
+    <value>View Reports</value>
+  </data>
+  <data name="ReportType" xml:space="preserve">
+    <value>Report Type:</value>
+  </data>
+  <data name="Revenue" xml:space="preserve">
+    <value>Total Revenue</value>
+  </data>
+  <data name="RunButton" xml:space="preserve">
+    <value>Run</value>
   </data>
   <data name="SaveButton" xml:space="preserve">
     <value>Save</value>
@@ -182,5 +263,17 @@
   </data>
   <data name="SellPrice" xml:space="preserve">
     <value>Sell Price:</value>
+  </data>
+  <data name="Sold" xml:space="preserve">
+    <value>Sold</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date:</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

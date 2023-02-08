@@ -1,4 +1,5 @@
-﻿using OrderTrackingApp.ViewModels;
+﻿using OrderTrackingApp.Resx;
+using OrderTrackingApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -45,7 +46,16 @@ namespace OrderTrackingApp.Models
                 {
                     totalPrice = value;
                     OnPropertyChanged(nameof(TotalPrice));
+                    OnPropertyChanged(nameof(TotalPriceString));
                 }
+            }
+        }
+
+        public string TotalPriceString
+        {
+            get
+            {
+                return AppResources.CurrencySymbol + TotalPrice.ToString();
             }
         }
 

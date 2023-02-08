@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:OrderTrackingApp.Resx"
              x:Class="OrderTrackingApp.MainPage"
              Title="OrderApp">
 
@@ -20,12 +21,18 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <ListView BackgroundColor="LightGray" Grid.Row="0" ItemsSource="{Binding DashboardTextItems}" Margin="10"/>
-            <Button x:Name="BtnInventory" Grid.Row="2" Text="Inventory" Command="{Binding InventoryButtonClick}" Margin="30,0,30,0"/>
-            <Button x:Name="BtnNewOrder" Grid.Row="4" Text="Create New Order" Command="{Binding NewOrderButtonClick}" Margin="30,0,30,0"/>
-            <Button x:Name="BtnOrderHistory" Grid.Row="6" Text="Order History" Command="{Binding OrderHistoryButtonClick}" Margin="30,0,30,0"/>
-            <Button x:Name="BtnReports" Grid.Row="8" Text="View Reports" Command="{Binding ReportsButtonClick}" Margin="30,0,30,0"/>
-            <Button x:Name="BtnProducts" Grid.Row="10" Text="Products" Command="{Binding ProductsButtonClick}" Margin="30,0,30,0"/>
+            <ListView BackgroundColor="LightGray" Grid.Row="0" ItemsSource="{Binding DashboardTextItems}" Margin="10" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding}" TextColor="Black"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="BtnInventory" Grid.Row="2" Text="{x:Static resources:AppResources.InventoryButton}" Command="{Binding InventoryButtonClick}" Margin="30,0,30,0"/>
+            <Button x:Name="BtnNewOrder" Grid.Row="4" Text="{x:Static resources:AppResources.NewOrderButton}" Command="{Binding NewOrderButtonClick}" Margin="30,0,30,0"/>
+            <Button x:Name="BtnOrderHistory" Grid.Row="6" Text="{x:Static resources:AppResources.OrderHistoryButton}" Command="{Binding OrderHistoryButtonClick}" Margin="30,0,30,0"/>
+            <Button x:Name="BtnReports" Grid.Row="8" Text="{x:Static resources:AppResources.ReportsButton}" Command="{Binding ReportsButtonClick}" Margin="30,0,30,0"/>
+            <Button x:Name="BtnProducts" Grid.Row="10" Text="{x:Static resources:AppResources.ProductsButton}" Command="{Binding ProductsButtonClick}" Margin="30,0,30,0"/>
 
         </Grid>
     </StackLayout>

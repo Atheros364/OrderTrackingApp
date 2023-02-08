@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using OrderTrackingApp.DAL;
 using System.Linq;
 using System.Collections.ObjectModel;
+using OrderTrackingApp.Resx;
 
 namespace OrderTrackingApp.ViewModels
 {
@@ -54,12 +55,15 @@ namespace OrderTrackingApp.ViewModels
                 DefaultItem item = products.First(p => p.Id == id);
                 await Nav.PushModalAsync(new AddProductView(item));
             });
-            DeleteProductButtonClick = new Command<int>((id) =>
+            DeleteProductButtonClick = new Command<int>(async (id) =>
             {
-                //TODO Add confirmation
-                DefaultItem item = products.First(p => p.Id == id);
-                DAL.DAL.DeleteDefaualtItem(item);
-                LoadProducts();
+                var confirmed = await Application.Current.MainPage.DisplayAlert(AppResources.ConfirmTtile, AppResources.DeleteConfirmationMsg, AppResources.Yes, AppResources.No);
+                if (confirmed)
+                {
+                    DefaultItem item = products.First(p => p.Id == id);
+                    DAL.DAL.DeleteDefaualtItem(item);
+                    LoadProducts();
+                }
             });
 
             MessagingCenter.Subscribe<AddProductViewModel>(this, "ProductChange", (sender) =>

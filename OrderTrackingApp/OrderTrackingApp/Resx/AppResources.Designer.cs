@@ -79,6 +79,15 @@ namespace OrderTrackingApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Profit per Unit.
+        /// </summary>
+        public static string AvgProfit {
+            get {
+                return ResourceManager.GetString("AvgProfit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Buy Price:.
         /// </summary>
         public static string BuyPrice {
@@ -106,6 +115,33 @@ namespace OrderTrackingApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Client Report.
+        /// </summary>
+        public static string ClientReport {
+            get {
+                return ResourceManager.GetString("ClientReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clients:.
+        /// </summary>
+        public static string Clients {
+            get {
+                return ResourceManager.GetString("Clients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clients.
+        /// </summary>
+        public static string Clients2 {
+            get {
+                return ResourceManager.GetString("Clients2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Closed Orders.
         /// </summary>
         public static string ClosedOrdersButton {
@@ -115,11 +151,74 @@ namespace OrderTrackingApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string ConfirmTtile {
+            get {
+                return ResourceManager.GetString("ConfirmTtile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Count:.
         /// </summary>
         public static string Count {
             get {
                 return ResourceManager.GetString("Count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to $.
+        /// </summary>
+        public static string CurrencySymbol {
+            get {
+                return ResourceManager.GetString("CurrencySymbol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  - # of orders in last 30 days.
+        /// </summary>
+        public static string DashboardMonthOrders {
+            get {
+                return ResourceManager.GetString("DashboardMonthOrders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  collected in last 30 days.
+        /// </summary>
+        public static string DashboardMonthRevenue {
+            get {
+                return ResourceManager.GetString("DashboardMonthRevenue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  In open orders.
+        /// </summary>
+        public static string DashboardOpenMoney {
+            get {
+                return ResourceManager.GetString("DashboardOpenMoney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  - # of open orders.
+        /// </summary>
+        public static string DashboardOpenOrders {
+            get {
+                return ResourceManager.GetString("DashboardOpenOrders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to permanently delete this?.
+        /// </summary>
+        public static string DeleteConfirmationMsg {
+            get {
+                return ResourceManager.GetString("DeleteConfirmationMsg", resourceCulture);
             }
         }
         
@@ -142,11 +241,47 @@ namespace OrderTrackingApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to End Date:.
+        /// </summary>
+        public static string EndDate {
+            get {
+                return ResourceManager.GetString("EndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to History.
         /// </summary>
         public static string HistoryTab {
             get {
                 return ResourceManager.GetString("HistoryTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amount in Inventory.
+        /// </summary>
+        public static string InInventory {
+            get {
+                return ResourceManager.GetString("InInventory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inventory.
+        /// </summary>
+        public static string InventoryButton {
+            get {
+                return ResourceManager.GetString("InventoryButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inventory Report.
+        /// </summary>
+        public static string InventoryReport {
+            get {
+                return ResourceManager.GetString("InventoryReport", resourceCulture);
             }
         }
         
@@ -160,11 +295,47 @@ namespace OrderTrackingApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create New Order.
+        /// </summary>
+        public static string NewOrderButton {
+            get {
+                return ResourceManager.GetString("NewOrderButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open Orders.
         /// </summary>
         public static string OpenOrdersButton {
             get {
                 return ResourceManager.GetString("OpenOrdersButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order History.
+        /// </summary>
+        public static string OrderHistoryButton {
+            get {
+                return ResourceManager.GetString("OrderHistoryButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orders.
+        /// </summary>
+        public static string Orders {
+            get {
+                return ResourceManager.GetString("Orders", resourceCulture);
             }
         }
         
@@ -214,6 +385,42 @@ namespace OrderTrackingApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Products:.
+        /// </summary>
+        public static string Products {
+            get {
+                return ResourceManager.GetString("Products", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Products.
+        /// </summary>
+        public static string ProductsButton {
+            get {
+                return ResourceManager.GetString("ProductsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Profit.
+        /// </summary>
+        public static string Profit {
+            get {
+                return ResourceManager.GetString("Profit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Purchased.
+        /// </summary>
+        public static string Purchased {
+            get {
+                return ResourceManager.GetString("Purchased", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Purchase Size:.
         /// </summary>
         public static string PurchaseSize {
@@ -228,6 +435,42 @@ namespace OrderTrackingApp.Resx {
         public static string RemoveButton {
             get {
                 return ResourceManager.GetString("RemoveButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Reports.
+        /// </summary>
+        public static string ReportsButton {
+            get {
+                return ResourceManager.GetString("ReportsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report Type:.
+        /// </summary>
+        public static string ReportType {
+            get {
+                return ResourceManager.GetString("ReportType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Revenue.
+        /// </summary>
+        public static string Revenue {
+            get {
+                return ResourceManager.GetString("Revenue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run.
+        /// </summary>
+        public static string RunButton {
+            get {
+                return ResourceManager.GetString("RunButton", resourceCulture);
             }
         }
         
@@ -255,6 +498,42 @@ namespace OrderTrackingApp.Resx {
         public static string SellPrice {
             get {
                 return ResourceManager.GetString("SellPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sold.
+        /// </summary>
+        public static string Sold {
+            get {
+                return ResourceManager.GetString("Sold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date:.
+        /// </summary>
+        public static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        public static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

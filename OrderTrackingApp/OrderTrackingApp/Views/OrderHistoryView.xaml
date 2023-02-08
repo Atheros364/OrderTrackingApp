@@ -47,7 +47,7 @@
                                                 <DataTemplate>
                                                     <ViewCell>
                                                         <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                                                            <Label Text="{Binding Price}"/>
+                                                            <Label Text="{Binding PriceString}"/>
                                                             <Label Text="{Binding Amount}"/>
                                                             <Label Text="{Binding Name}"/>
                                                         </StackLayout>
@@ -56,7 +56,7 @@
                                             </ListView.ItemTemplate>
                                         </ListView>
                                     </StackLayout>
-                                    <Label Text="{Binding TotalPrice}" HorizontalOptions="End" Margin="10"  VerticalOptions="EndAndExpand"/>
+                                    <Label Text="{Binding TotalPriceString}" HorizontalOptions="End" Margin="10"  VerticalOptions="EndAndExpand"/>
                                 </StackLayout>
                             </StackLayout>
 
