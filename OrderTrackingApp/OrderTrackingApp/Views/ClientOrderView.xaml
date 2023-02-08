@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:OrderTrackingApp.Resx"
              x:Class="OrderTrackingApp.Views.ClientOrderView"
-             x:Name="clientOrderView">
+             x:Name="clientOrderView"
+             Title="{x:Static resources:AppResources.NewOrderButton}">
     <ContentPage.Content>
         <StackLayout>
             <Grid>

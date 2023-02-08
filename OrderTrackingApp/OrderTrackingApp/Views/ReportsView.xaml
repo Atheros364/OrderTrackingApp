@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:OrderTrackingApp.Resx"
-             x:Class="OrderTrackingApp.Views.ReportsView">
+             x:Class="OrderTrackingApp.Views.ReportsView"
+             Title="{x:Static resources:AppResources.ReportsButton}">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>

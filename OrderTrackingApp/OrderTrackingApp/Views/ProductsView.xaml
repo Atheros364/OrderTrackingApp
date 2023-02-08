@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resources="clr-namespace:OrderTrackingApp.Resx"
              x:Class="OrderTrackingApp.Views.ProductsView"
-             x:Name="productsView">
+             x:Name="productsView"
+             Title="{x:Static resources:AppResources.ProductsButton}">
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="lstProducts" ItemsSource="{Binding Products}" SelectionMode="None" Margin="0,10,0,10">

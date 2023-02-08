@@ -109,7 +109,6 @@ namespace OrderTrackingApp.ViewModels
             });
             SearchButtonClick = new Command(() =>
             {
-                IsShowingPayed = true;
                 RefreshItems();
             });
             MessagingCenter.Subscribe<ClientOrderViewModel>(this, "ProductChange", (sender) =>
@@ -125,7 +124,7 @@ namespace OrderTrackingApp.ViewModels
 
             if (!String.IsNullOrEmpty(SearchText))
             {
-                orders = orders.Where(o => o.ClientName.Contains(SearchText)).ToList();
+                orders = orders.Where(o => o.ClientName.ToLower().Contains(SearchText.ToLower())).ToList();
             }
 
             orders.Reverse();

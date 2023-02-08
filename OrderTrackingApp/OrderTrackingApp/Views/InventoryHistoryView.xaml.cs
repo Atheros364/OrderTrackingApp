@@ -17,6 +17,7 @@ namespace OrderTrackingApp.Views
         {
             InitializeComponent();
             BindingContext = new InventoryHistoryViewModel(Navigation);
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

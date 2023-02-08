@@ -154,7 +154,7 @@
     <value>Count:</value>
   </data>
   <data name="CurrencySymbol" xml:space="preserve">
-    <value>$</value>
+    <value>₫</value>
   </data>
   <data name="DashboardMonthOrders" xml:space="preserve">
     <value> - # of orders in last 30 days</value>

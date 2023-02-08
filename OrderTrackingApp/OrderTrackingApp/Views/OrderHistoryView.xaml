@@ -4,7 +4,8 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:resources="clr-namespace:OrderTrackingApp.Resx"
              x:Class="OrderTrackingApp.Views.OrderHistoryView"
-             x:Name="clientHistoryView">
+             x:Name="clientHistoryView"
+             Title="{x:Static resources:AppResources.OrderHistoryButton}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <xct:InvertedBoolConverter x:Key="InvertedBoolConverter" />
