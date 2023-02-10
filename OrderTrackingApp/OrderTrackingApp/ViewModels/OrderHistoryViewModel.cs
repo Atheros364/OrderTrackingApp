@@ -68,6 +68,7 @@ namespace OrderTrackingApp.ViewModels
                 {
                     searchText = value;
                     OnPropertyChanged(nameof(SearchText));
+                    RefreshItems();
                 }
             }
         }
@@ -77,6 +78,7 @@ namespace OrderTrackingApp.ViewModels
         public ICommand ShowOpenButtonClick { protected set; get; }
         public ICommand ShowClosedButtonClick { protected set; get; }
         public ICommand SearchButtonClick { protected set; get; }
+        public ICommand ClearSearchButtonClick { protected set; get; }
 
         private void Initialize()
         {
@@ -110,6 +112,10 @@ namespace OrderTrackingApp.ViewModels
             SearchButtonClick = new Command(() =>
             {
                 RefreshItems();
+            });
+            ClearSearchButtonClick = new Command(() =>
+            {
+                SearchText = string.Empty;
             });
             MessagingCenter.Subscribe<ClientOrderViewModel>(this, "ProductChange", (sender) =>
             {

@@ -3,6 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OrderTrackingApp.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="FASolid">
+                <On Platform="Android" Value="FASolid.otf#Regular" />
+                <On Platform="iOS" Value="FASolid" />
+            </OnPlatform>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

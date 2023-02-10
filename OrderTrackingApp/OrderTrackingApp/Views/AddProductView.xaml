@@ -45,9 +45,9 @@
                 <Label Text="{x:Static resources:AppResources.PurchaseSize}"/>
                 <Entry Text="{Binding PurchaseSize}" Grid.Column="2" Keyboard="Numeric"/>
             </Grid>
-            <StackLayout Orientation="Horizontal">
-                <Button Text="{x:Static resources:AppResources.SaveButton}" Command="{Binding SaveButtonClick}"/>
-                <Button Text="{x:Static resources:AppResources.CancelButton}" Command="{Binding CancelButtonClick}"/>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Button Text="{x:Static resources:AppResources.SaveButton}" Command="{Binding SaveButtonClick}" HorizontalOptions="EndAndExpand"/>
+                <Button Text="{x:Static resources:AppResources.CancelButton}" Command="{Binding CancelButtonClick}" HorizontalOptions="End"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

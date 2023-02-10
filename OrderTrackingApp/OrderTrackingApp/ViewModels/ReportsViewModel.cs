@@ -4,11 +4,10 @@ using OrderTrackingApp.Resx;
 using OrderTrackingApp.Views;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using static System.Net.Mime.MediaTypeNames;
+using Xamarin.Essentials;
+using System.Threading.Tasks;
 
 namespace OrderTrackingApp.ViewModels
 {
@@ -195,9 +194,9 @@ namespace OrderTrackingApp.ViewModels
 
         private void Initialize()
         {
-            SaveButtonClick = new Command(() =>
+            SaveButtonClick = new Command( async () =>
             {
-                SaveReport();
+                await SaveReport();
             });
             RunButtonClick = new Command(() =>
             {
@@ -317,9 +316,24 @@ namespace OrderTrackingApp.ViewModels
             }
         }
 
-        private void SaveReport()
+        private async Task SaveReport()
         {
-            //TODO
+            if (!String.IsNullOrEmpty(ReportOutput))
+            {
+                try
+                {
+                    var message = new EmailMessage
+                    {
+                        Subject = AppResources.ReportSubject,
+                        Body = ReportOutput
+                    };
+                    await Email.ComposeAsync(message);
+                }
+                catch (Exception ex) 
+                {
+
+                }
+            }
         }
     }
 }

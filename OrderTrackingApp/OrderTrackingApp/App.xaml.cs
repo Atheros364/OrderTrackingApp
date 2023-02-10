@@ -10,7 +10,10 @@ namespace OrderTrackingApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.Firebrick
+            };
         }
 
         protected override void OnStart()

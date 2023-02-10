@@ -18,9 +18,9 @@
                                     <ColumnDefinition Width="10"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Count}"/>
-                                <Label Grid.Column="2" Text="{Binding ItemType.Name}"/>
-                                <Button Grid.Column="4" Text="{x:Static resources:AppResources.EditButton}" Command="{Binding BindingContext.EditProductButtonClick, Source={x:Reference inventoryView}}" CommandParameter="{Binding Id}" Margin="0,0,5,0"/>
+                                <Label Text="{Binding Count}"  FontSize="Medium"/>
+                                <Label Grid.Column="2" Text="{Binding ItemType.Name}"  FontSize="Medium"/>
+                                <Button Grid.Column="4" Text="&#xf303;" FontFamily="{StaticResource FASolid}" Command="{Binding BindingContext.EditProductButtonClick, Source={x:Reference inventoryView}}" CommandParameter="{Binding Id}" Margin="0,0,5,0"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

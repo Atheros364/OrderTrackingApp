@@ -246,6 +246,9 @@
   <data name="ReportsButton" xml:space="preserve">
     <value>View Reports</value>
   </data>
+  <data name="ReportSubject" xml:space="preserve">
+    <value>OrderApp Report</value>
+  </data>
   <data name="ReportType" xml:space="preserve">
     <value>Report Type:</value>
   </data>

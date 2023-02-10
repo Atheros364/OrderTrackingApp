@@ -24,7 +24,9 @@
             <ListView BackgroundColor="LightGray" Grid.Row="0" ItemsSource="{Binding DashboardTextItems}" Margin="10" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding}" TextColor="Black"/>
+                        <ViewCell>
+                            <Label Text="{Binding}" FontSize="Medium" TextColor="Black" Margin="10" VerticalOptions="CenterAndExpand"/>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -33,7 +35,6 @@
             <Button x:Name="BtnOrderHistory" Grid.Row="6" Text="{x:Static resources:AppResources.OrderHistoryButton}" Command="{Binding OrderHistoryButtonClick}" Margin="30,0,30,0"/>
             <Button x:Name="BtnReports" Grid.Row="8" Text="{x:Static resources:AppResources.ReportsButton}" Command="{Binding ReportsButtonClick}" Margin="30,0,30,0"/>
             <Button x:Name="BtnProducts" Grid.Row="10" Text="{x:Static resources:AppResources.ProductsButton}" Command="{Binding ProductsButtonClick}" Margin="30,0,30,0"/>
-
         </Grid>
     </StackLayout>
 

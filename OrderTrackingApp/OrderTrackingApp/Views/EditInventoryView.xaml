@@ -5,7 +5,7 @@
              x:Class="OrderTrackingApp.Views.EditInventoryView">
     <ContentPage.Content>
         <StackLayout>
-            <Grid Margin="10,0,10,0">
+            <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="10"/>
@@ -23,9 +23,9 @@
                 <Label Text="{x:Static resources:AppResources.Count}"/>
                 <Entry Text="{Binding Count}" Grid.Column="2" Keyboard="Numeric"/>
             </Grid>
-            <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                <Button Text="{x:Static resources:AppResources.SaveButton}" Command="{Binding SaveButtonClick}"/>
-                <Button Text="{x:Static resources:AppResources.CancelButton}" Command="{Binding CancelButtonClick}"/>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" Margin="10,0,10,0">
+                <Button Text="{x:Static resources:AppResources.SaveButton}" Command="{Binding SaveButtonClick}" HorizontalOptions="EndAndExpand"/>
+                <Button Text="{x:Static resources:AppResources.CancelButton}" Command="{Binding CancelButtonClick}" HorizontalOptions="End"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

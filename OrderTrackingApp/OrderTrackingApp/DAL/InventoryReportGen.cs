@@ -22,9 +22,10 @@ namespace OrderTrackingApp.DAL
             {
                 sb.AppendLine(string.Format("{0}: ", data.Name));
                 sb.AppendLine(string.Format("{0}: {1}", AppResources.InInventory, data.InventoryCount));
-                sb.AppendLine(string.Format("{0}: {1}, {2}: {3}", AppResources.Purchased, data.PurchasedCount, AppResources.Sold, data.SoldCount));
-                sb.AppendLine(string.Format("{0}: {2}{1:f2}", AppResources.Revenue, data.Revenue, AppResources.CurrencySymbol));
-                sb.AppendLine(string.Format("{0}: {4}{1:f2}, {2}: {4}{3:f2}", AppResources.Profit, data.Profit, AppResources.AvgProfit, data.UnitProfit, AppResources.CurrencySymbol));
+                sb.AppendLine(string.Format("{0}: {1}", AppResources.Purchased, data.PurchasedCount));
+                sb.AppendLine(string.Format("{0}: {1}", AppResources.Sold, data.SoldCount));
+                sb.AppendLine(string.Format("{0}: {1}{2}", AppResources.Revenue, data.Revenue, AppResources.CurrencySymbol));
+                sb.AppendLine(string.Format("{0}: {1}{2}", AppResources.Profit, data.Profit, AppResources.CurrencySymbol));
                 sb.AppendLine("-----------------");
             }
 

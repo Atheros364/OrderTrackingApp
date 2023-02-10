@@ -529,7 +529,7 @@ namespace OrderTrackingApp.DAL
                 }                
             }
 
-            string result = AppResources.CurrencySymbol + money.ToString() + AppResources.DashboardMonthRevenue;
+            string result =  money.ToString() + AppResources.CurrencySymbol + AppResources.DashboardMonthRevenue;
 
             return result;
         }
@@ -564,7 +564,7 @@ namespace OrderTrackingApp.DAL
                 }
             }
 
-            string result = AppResources.CurrencySymbol + money.ToString() + AppResources.DashboardOpenMoney;
+            string result = money.ToString() + AppResources.CurrencySymbol + AppResources.DashboardOpenMoney;
 
             return result;
         }

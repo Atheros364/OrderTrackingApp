@@ -448,6 +448,15 @@ namespace OrderTrackingApp.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OrderApp Report.
+        /// </summary>
+        public static string ReportSubject {
+            get {
+                return ResourceManager.GetString("ReportSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Report Type:.
         /// </summary>
         public static string ReportType {

@@ -24,10 +24,10 @@ namespace OrderTrackingApp.DAL
                 sb.AppendLine(string.Format("{0}: {1}", AppResources.Orders, data.OrderCount));
                 foreach(CRProduct product in data.Products.Values)
                 {
-                    sb.AppendLine(string.Format("   {0}: {1}{2:f2} ({3})", product.Name, AppResources.CurrencySymbol, product.Spent, product.PurchasedCount));
+                    sb.AppendLine(string.Format("   {0}: {1}{2} ({3})", product.Name, AppResources.CurrencySymbol, product.Spent, product.PurchasedCount));
                 }
-                sb.AppendLine(string.Format("{0}: {2}{1:f2}", AppResources.Revenue, data.Revenue, AppResources.CurrencySymbol));
-                sb.AppendLine(string.Format("{0}: {2}{1:f2}", AppResources.Profit, data.Profit, AppResources.CurrencySymbol));
+                sb.AppendLine(string.Format("{0}: {1}{2}", AppResources.Revenue, data.Revenue, AppResources.CurrencySymbol));
+                sb.AppendLine(string.Format("{0}: {1}{2}", AppResources.Profit, data.Profit, AppResources.CurrencySymbol));
                 sb.AppendLine("-----------------");
             }
 

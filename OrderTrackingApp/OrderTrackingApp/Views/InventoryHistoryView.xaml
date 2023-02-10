@@ -11,9 +11,9 @@
                     <ViewCell>
                         <StackLayout BackgroundColor="LightGray" Margin="5">
                             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="1" Padding="5" BackgroundColor="White">
-                                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
-                                    <Label Text="{Binding Date}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-                                    <Button Text="{x:Static resources:AppResources.RemoveButton}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference inventoryHistoryView}}" CommandParameter="{Binding Id}"/>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Margin="10,0">
+                                    <Label Text="{Binding Date}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="Medium"/>
+                                    <Button Text="&#xf1f8;" FontFamily="{StaticResource FASolid}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference inventoryHistoryView}}" CommandParameter="{Binding Id}"/>
                                 </StackLayout>
                                 <StackLayout VerticalOptions="FillAndExpand">
                                     <ListView Grid.Row="1" ItemsSource="{Binding Items}" SelectionMode="None" Margin="20, 0"  VerticalOptions="Center" RowHeight="30">
@@ -30,7 +30,7 @@
                                         </ListView.ItemTemplate>
                                     </ListView>
                                 </StackLayout>
-                                <Label Text="{Binding TotalPriceString}" HorizontalOptions="End" Margin="10"  VerticalOptions="EndAndExpand"/>
+                                <Label Text="{Binding TotalPriceString}" HorizontalOptions="End" Margin="10"  VerticalOptions="EndAndExpand" FontSize="Large"/>
                             </StackLayout>
                         </StackLayout>
                         

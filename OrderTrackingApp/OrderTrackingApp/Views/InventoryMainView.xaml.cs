@@ -13,6 +13,7 @@ namespace OrderTrackingApp.Views
     {
         public InventoryMainView()
         {
+            BarBackgroundColor = Color.Firebrick;
             NavigationPage inventoryPage = new NavigationPage(new InventoryView());
             inventoryPage.Title = AppResources.InventoryTab;
             Children.Add(inventoryPage);

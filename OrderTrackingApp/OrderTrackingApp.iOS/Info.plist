@@ -41,5 +41,13 @@
     </array>
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
-</dict>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>mailto</string>
+    </array>
+    <key>UIAppFonts</key>
+    <array>
+      <string>FASolid.otf</string>
+    </array>
+  </dict>
 </plist>

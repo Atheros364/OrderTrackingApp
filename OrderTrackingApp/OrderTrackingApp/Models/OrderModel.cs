@@ -55,7 +55,7 @@ namespace OrderTrackingApp.Models
         {
             get
             {
-                return AppResources.CurrencySymbol + TotalPrice.ToString();
+                return TotalPrice.ToString() + AppResources.CurrencySymbol;
             }
         }
 

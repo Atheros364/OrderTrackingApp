@@ -26,7 +26,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Picker Title="{x:Static resources:AppResources.Product}" ItemsSource="{Binding ItemTypes}" SelectedItem="{Binding SelectedItemType}"/>
-                    <StackLayout Grid.Column="1">
+                    <StackLayout Grid.Column="1" VerticalOptions="Center">
                         <Label Text="{x:Static resources:AppResources.Price}" VerticalOptions="End" />
                         <Entry Keyboard="Numeric" Text="{Binding Price}" Margin="0,-10,0,0"/>
                     </StackLayout>
@@ -34,7 +34,7 @@
                         <Label Text="{x:Static resources:AppResources.Amount}"/>
                         <Entry Keyboard="Numeric" Text="{Binding Amount}" Margin="0,-10,0,0"/>
                     </StackLayout>
-                    <Button Grid.Row="1" Grid.Column="1" Text="{x:Static resources:AppResources.AddButton}" Command="{Binding AddItemButtonClick}"/>
+                    <Button Grid.Row="1" Grid.Column="1" Text="&#x2b;" FontFamily="{StaticResource FASolid}" Command="{Binding AddItemButtonClick}"  Margin="20,10"/>
                 </Grid>
                 <ListView Grid.Row="2" ItemsSource="{Binding AddedItems}" SelectionMode="None">
                     <ListView.ItemTemplate>
@@ -50,18 +50,18 @@
                                         <ColumnDefinition Width="10"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding PriceString}"/>
-                                    <Label Grid.Column="2" Text="{Binding Count}"/>
-                                    <Label Grid.Column="4" Text="{Binding Name}"/>
-                                    <Button Grid.Column="6" Text="{x:Static resources:AppResources.RemoveButton}" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference inventoryOrderView}}" CommandParameter="{Binding Name}" Margin="0,0,5,0"/>
+                                    <Label Text="{Binding PriceString}" FontSize="Medium"/>
+                                    <Label Grid.Column="2" Text="{Binding Count}" FontSize="Medium"/>
+                                    <Label Grid.Column="4" Text="{Binding Name}" FontSize="Medium"/>
+                                    <Button Grid.Column="6" Text="&#xf1f8;" FontFamily="{StaticResource FASolid}" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference inventoryOrderView}}" CommandParameter="{Binding Name}" Margin="0,0,5,0"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Label Grid.Row="4" Text="{Binding TotalCost}" HorizontalOptions="End"/>
-                <StackLayout Grid.Row="6" Orientation="Horizontal">
-                    <Button Text="{x:Static resources:AppResources.SaveButton}" Command="{Binding SaveButtonClick}" HorizontalOptions="Start"/>
+                <Label Grid.Row="4" Text="{Binding TotalCost}" HorizontalOptions="End" Margin="20,0" FontSize="Large"/>
+                <StackLayout Grid.Row="6" Orientation="Horizontal" Margin="20">
+                    <Button Text="{x:Static resources:AppResources.SaveButton}" Command="{Binding SaveButtonClick}" HorizontalOptions="EndAndExpand"/>
                     <Button Text="{x:Static resources:AppResources.CancelButton}" Command="{Binding CancelButtonClick}" HorizontalOptions="End"/>
                 </StackLayout>
             </Grid>

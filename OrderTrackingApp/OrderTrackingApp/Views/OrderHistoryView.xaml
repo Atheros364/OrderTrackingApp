@@ -27,7 +27,7 @@
 
             <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="20,0">
                 <Entry Text="{Binding SearchText}" HorizontalOptions="FillAndExpand"/>
-                <Button Text="{x:Static resources:AppResources.SearchButton}" Command="{Binding SearchButtonClick}" HorizontalOptions="End"/>
+                <Button Text="&#xf00d;" FontFamily="{StaticResource FASolid}" Command="{Binding ClearSearchButtonClick}" HorizontalOptions="End"/>
             </StackLayout>
 
             <ListView Grid.Row="2" ItemsSource="{Binding HistoryItems}" SelectionMode="None" HorizontalOptions="Fill" Margin="10" VerticalOptions="Fill" HasUnevenRows="True">
@@ -37,10 +37,8 @@
                             <StackLayout BackgroundColor="LightGray" Margin="5">
                                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="1" Padding="5" BackgroundColor="White">
                                     <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
-                                        <Label Text="{Binding Date}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-                                        <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-                                        <Button Text="{x:Static resources:AppResources.PayOrderButton}" IsVisible="{Binding IsOpen}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Command="{Binding BindingContext.PayItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
-                                        <Button Text="{x:Static resources:AppResources.RemoveButton}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
+                                        <Label Text="{Binding Date}" HorizontalOptions="Start" VerticalOptions="Center" FontSize="Medium" Margin="10,0"/>
+                                        <Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="Medium"/>
                                     </StackLayout>
                                     <StackLayout VerticalOptions="FillAndExpand">
                                         <ListView Grid.Row="1" ItemsSource="{Binding Items}" SelectionMode="None" Margin="20, 0"  VerticalOptions="Center" RowHeight="30">
@@ -58,6 +56,10 @@
                                         </ListView>
                                     </StackLayout>
                                     <Label Text="{Binding TotalPriceString}" HorizontalOptions="End" Margin="10"  VerticalOptions="EndAndExpand"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Button Text="&#xf1f8;" FontFamily="{StaticResource FASolid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
+                                        <Button Text="{x:Static resources:AppResources.PayOrderButton}" IsVisible="{Binding IsOpen}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.PayItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
+                                    </StackLayout>
                                 </StackLayout>
                             </StackLayout>
 

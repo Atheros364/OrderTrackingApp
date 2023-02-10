@@ -21,7 +21,7 @@ namespace OrderTrackingApp.ViewModels
         decimal price = 0;
         int amount = 0;
         ObservableCollection<InventoryOrderItem> addedItems = new ObservableCollection<InventoryOrderItem>();
-        string totalCost = AppResources.CurrencySymbol + "0";
+        string totalCost = "0" + AppResources.CurrencySymbol;
         string name = string.Empty;
         INavigation Nav;
         public ClientOrderViewModel(INavigation nav)
@@ -213,7 +213,7 @@ namespace OrderTrackingApp.ViewModels
         private void ResetPage()
         {
             AddedItems.Clear();
-            TotalCost = AppResources.CurrencySymbol + "0";
+            TotalCost = "0" + AppResources.CurrencySymbol;
             Name = string.Empty;
             itemTypeObjects = DAL.DAL.GetDefaultItems();
             List<string> tempTypes = new List<string>();
@@ -277,7 +277,7 @@ namespace OrderTrackingApp.ViewModels
             {
                 price += item.Price;
             }
-            TotalCost = AppResources.CurrencySymbol + price.ToString();
+            TotalCost = price.ToString() + AppResources.CurrencySymbol;
         }
 
         private void SaveOrder()

@@ -33,7 +33,7 @@ namespace OrderTrackingApp.Models
         {
             get
             {
-                return AppResources.CurrencySymbol + Price.ToString();
+                return Price.ToString() + AppResources.CurrencySymbol;
             }
         }
 
