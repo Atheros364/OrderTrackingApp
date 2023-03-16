@@ -17,7 +17,7 @@ namespace OrderTrackingApp.DAL
         #region HelperMethods
         private static string getDBPath()
         {
-            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal),"orderAppDB.db3");
+            return Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, "orderAppDB.db3");
         }
 
         public static bool TableExists(SQLiteConnection connection, string tableName)

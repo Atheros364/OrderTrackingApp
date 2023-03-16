@@ -32,7 +32,7 @@
                         <StackLayout Orientation="Horizontal">
                             <Entry Text="{Binding Name}" HorizontalOptions="FillAndExpand"  Margin="0,-10,0,0"/>
                             <Picker IsVisible="False" x:Name="namePicker" ItemsSource="{Binding ClientNames}" SelectedItem="{Binding SelectedClientName}"/>
-                            <Button Clicked="Button_Clicked" HorizontalOptions="End"/>
+                            <Button Text="&#xf00d;" FontFamily="{StaticResource FASolid}" Clicked="Button_Clicked" HorizontalOptions="End"/>
                         </StackLayout>
                     </StackLayout>
                     <Picker Grid.Row="1" Title="{x:Static resources:AppResources.Product}" ItemsSource="{Binding ItemTypes}" SelectedItem="{Binding SelectedItemType}" />
