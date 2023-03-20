@@ -1,6 +1,8 @@
 ﻿using OrderTrackingApp.Models;
 using OrderTrackingApp.Objects;
 using OrderTrackingApp.Resx;
+using OrderTrackingApp.Views;
+using Rg.Plugins.Popup.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +18,7 @@ namespace OrderTrackingApp.ViewModels
         List<Order> orders;
         ObservableCollection<OrderModel> historyItems = new ObservableCollection<OrderModel>();
         bool isShowingPayed = false;
+        bool isInMultiSelect = false;
         string searchText = string.Empty;
         INavigation Nav;
         public OrderHistoryViewModel(INavigation nav)
@@ -56,6 +59,22 @@ namespace OrderTrackingApp.ViewModels
             }
         }
 
+        public bool IsInMultiSelect
+        {
+            get
+            {
+                return isInMultiSelect;
+            }
+            set
+            {
+                if (isInMultiSelect != value)
+                {
+                    isInMultiSelect = value;
+                    OnPropertyChanged(nameof(IsInMultiSelect));
+                }
+            }
+        }
+
         public string SearchText
         {
             get
@@ -79,6 +98,9 @@ namespace OrderTrackingApp.ViewModels
         public ICommand ShowClosedButtonClick { protected set; get; }
         public ICommand SearchButtonClick { protected set; get; }
         public ICommand ClearSearchButtonClick { protected set; get; }
+        public ICommand CancelMultiSelectButtonClick { protected set; get; }
+        public ICommand ShowSelectedScreenButtonClick { protected set; get; }
+        public ICommand EnableMultiSelect { protected set; get; }
 
         private void Initialize()
         {
@@ -106,6 +128,7 @@ namespace OrderTrackingApp.ViewModels
             });
             ShowClosedButtonClick = new Command(() =>
             {
+                CancelMultiSelect();
                 IsShowingPayed = true;
                 RefreshItems();
             });
@@ -117,10 +140,53 @@ namespace OrderTrackingApp.ViewModels
             {
                 SearchText = string.Empty;
             });
+            CancelMultiSelectButtonClick = new Command(() =>
+            {
+                CancelMultiSelect();
+            });
+            ShowSelectedScreenButtonClick = new Command(() =>
+            {
+                ShowPopup();
+            });
+            EnableMultiSelect = new Command(() =>
+            {
+                if(!IsShowingPayed)
+                {
+                    IsInMultiSelect = true;
+                }                
+            });
             MessagingCenter.Subscribe<ClientOrderViewModel>(this, "ProductChange", (sender) =>
             {
                 RefreshItems();
             });
+            MessagingCenter.Subscribe<OrderHistoryPopupViewModel>(this, "OrderPayed", (sender) =>
+            {
+                RefreshItems();
+            });
+        }
+
+        private void ShowPopup()
+        {
+            List<OrderModel> items = new List<OrderModel>();
+            foreach(OrderModel item in HistoryItems)
+            {
+                if (item.IsSelected)
+                {
+                    items.Add(item);
+                }
+            }
+
+            CancelMultiSelect();
+            Nav.PushPopupAsync(new OrderHistoryPopupView(items));
+        }
+
+        private void CancelMultiSelect()
+        {
+            IsInMultiSelect = false;
+            foreach (OrderModel item in HistoryItems)
+            {
+                item.IsSelected = false;
+            }
         }
 
         private void RefreshItems()

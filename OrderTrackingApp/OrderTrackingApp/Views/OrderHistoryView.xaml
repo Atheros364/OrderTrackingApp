@@ -18,6 +18,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <StackLayout Orientation="Horizontal" Margin="20, 10,20,0">
@@ -34,13 +35,16 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout BackgroundColor="LightGray" Margin="5">
+                            <StackLayout BackgroundColor="LightGray" Margin="5" Orientation="Horizontal">
+                                <StackLayout IsVisible="{Binding BindingContext.IsInMultiSelect, Source={x:Reference clientHistoryView}}">
+                                    <CheckBox IsChecked="{Binding IsSelected}" VerticalOptions="CenterAndExpand" Color="Gray" HorizontalOptions="Center"/>
+                                </StackLayout>
                                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="1" Padding="5" BackgroundColor="White">
-                                    <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" xct:TouchEffect.LongPressCommand="{Binding BindingContext.EnableMultiSelect, Source={x:Reference clientHistoryView}}">
                                         <Label Text="{Binding Date}" HorizontalOptions="Start" VerticalOptions="Center" FontSize="Medium" Margin="10,0"/>
                                         <Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="Medium"/>
                                     </StackLayout>
-                                    <StackLayout VerticalOptions="FillAndExpand">
+                                    <StackLayout VerticalOptions="FillAndExpand" xct:TouchEffect.LongPressCommand="{Binding BindingContext.EnableMultiSelect, Source={x:Reference clientHistoryView}}">
                                         <ListView Grid.Row="1" ItemsSource="{Binding Items}" SelectionMode="None" Margin="20, 0"  VerticalOptions="Center" RowHeight="30">
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
@@ -55,19 +59,21 @@
                                             </ListView.ItemTemplate>
                                         </ListView>
                                     </StackLayout>
-                                    <Label Text="{Binding TotalPriceString}" HorizontalOptions="End" Margin="10"  VerticalOptions="EndAndExpand"/>
+                                    <Label Text="{Binding TotalPriceString}" HorizontalOptions="End" Margin="10"  VerticalOptions="EndAndExpand" FontSize="Medium"/>
                                     <StackLayout Orientation="Horizontal">
                                         <Button Text="&#xf1f8;" FontFamily="{StaticResource FASolid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
                                         <Button Text="{x:Static resources:AppResources.PayOrderButton}" IsVisible="{Binding IsOpen}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.PayItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>
-
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
+            <StackLayout Grid.Row="3" Orientation="Horizontal" Margin="20,-10,20,10" IsVisible="{Binding IsInMultiSelect}">
+                <Button Text="{x:Static resources:AppResources.ViewButton}" Command="{Binding ShowSelectedScreenButtonClick}" HorizontalOptions="EndAndExpand"/>
+                <Button Text="{x:Static resources:AppResources.CancelButton}" Command="{Binding CancelMultiSelectButtonClick}" HorizontalOptions="End"/>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

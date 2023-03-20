@@ -15,8 +15,9 @@ namespace OrderTrackingApp.Models
         string date;
         string name;
         decimal totalPrice;
-        ObservableCollection<OrderItemModel> items;
+        ObservableCollection<OrderItemModel> items = new ObservableCollection<OrderItemModel>();
         bool isOpen;
+        bool isSelected;
 
         public int Id
         {
@@ -119,6 +120,22 @@ namespace OrderTrackingApp.Models
                 {
                     isOpen = value;
                     OnPropertyChanged(nameof(IsOpen));
+                }
+            }
+        }
+
+        public bool IsSelected
+        {
+            get
+            {
+                return isSelected;
+            }
+            set
+            {
+                if (isSelected != value)
+                {
+                    isSelected = value;
+                    OnPropertyChanged(nameof(IsSelected));
                 }
             }
         }

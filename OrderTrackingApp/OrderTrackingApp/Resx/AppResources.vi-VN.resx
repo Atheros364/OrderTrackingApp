@@ -276,6 +276,9 @@
   <data name="Total" xml:space="preserve">
     <value>Tổng</value>
   </data>
+  <data name="ViewButton" xml:space="preserve">
+    <value>Xem</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>Đồng Ý</value>
   </data>

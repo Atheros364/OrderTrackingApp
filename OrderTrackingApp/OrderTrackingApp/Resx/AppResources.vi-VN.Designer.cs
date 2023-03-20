@@ -538,13 +538,24 @@ namespace OrderTrackingApp.Resx {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Yes.
+        ///   Looks up a localized string similar to ReportSubject.
         /// </summary>
         public static string ReportSubject
         {
             get
             {
                 return ResourceManager.GetString("OrderApp Report", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to ReportSubject.
+        /// </summary>
+        public static string ViewButton
+        {
+            get
+            {
+                return ResourceManager.GetString("ViewButton", resourceCulture);
             }
         }
     }
