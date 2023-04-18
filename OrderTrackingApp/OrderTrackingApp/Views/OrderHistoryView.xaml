@@ -61,7 +61,8 @@
                                     </StackLayout>
                                     <Label Text="{Binding TotalPriceString}" HorizontalOptions="End" Margin="10"  VerticalOptions="EndAndExpand" FontSize="Medium"/>
                                     <StackLayout Orientation="Horizontal">
-                                        <Button Text="&#xf1f8;" FontFamily="{StaticResource FASolid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
+                                        <Button Text="&#xf303;" FontFamily="{StaticResource FASolid}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Command="{Binding BindingContext.EditItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
+                                        <Button Text="&#xf1f8;" FontFamily="{StaticResource FASolid}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
                                         <Button Text="{x:Static resources:AppResources.PayOrderButton}" IsVisible="{Binding IsOpen}" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding BindingContext.PayItemButtonClick, Source={x:Reference clientHistoryView}}" CommandParameter="{Binding Id}"/>
                                     </StackLayout>
                                 </StackLayout>

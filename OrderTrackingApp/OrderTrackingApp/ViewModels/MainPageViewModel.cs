@@ -69,6 +69,10 @@ namespace OrderTrackingApp.ViewModels
             {
                 UpdateDashboard();
             });
+            MessagingCenter.Subscribe<EditClientOrderViewModel>(this, "ProductChange", (sender) =>
+            {
+                UpdateDashboard();
+            });
             MessagingCenter.Subscribe<OrderHistoryViewModel>(this, "OrderPayed", (sender) =>
             {
                 UpdateDashboard();

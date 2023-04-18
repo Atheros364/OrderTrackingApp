@@ -92,6 +92,7 @@ namespace OrderTrackingApp.ViewModels
             }
         }
 
+        public ICommand EditItemButtonClick { protected set; get; }
         public ICommand DeleteItemButtonClick { protected set; get; }
         public ICommand PayItemButtonClick { protected set; get; }
         public ICommand ShowOpenButtonClick { protected set; get; }
@@ -103,7 +104,12 @@ namespace OrderTrackingApp.ViewModels
         public ICommand EnableMultiSelect { protected set; get; }
 
         private void Initialize()
-        {
+        { 
+            EditItemButtonClick = new Command<int>(async (id) =>
+            {
+                Order item = orders.First(p => p.Id == id);
+                await Nav.PushModalAsync(new EditClientOrderView(item));
+            });
             DeleteItemButtonClick = new Command<int>(async (id) =>
             {
                 var confirmed = await Application.Current.MainPage.DisplayAlert(AppResources.ConfirmTtile, AppResources.DeleteConfirmationMsg, AppResources.Yes, AppResources.No);
@@ -156,6 +162,10 @@ namespace OrderTrackingApp.ViewModels
                 }                
             });
             MessagingCenter.Subscribe<ClientOrderViewModel>(this, "ProductChange", (sender) =>
+            {
+                RefreshItems();
+            });
+            MessagingCenter.Subscribe<EditClientOrderViewModel>(this, "ProductChange", (sender) =>
             {
                 RefreshItems();
             });

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:OrderTrackingApp.Resx"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="OrderTrackingApp.Views.EditClientOrderView"
+             x:Name="editClientOrderView"
+             Title="{x:Static resources:AppResources.NewOrderButton}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid Margin="15,15,15,15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout VerticalOptions="Center">
+                        <Label Text="{x:Static resources:AppResources.ProductName}" VerticalOptions="End" />
+                        <Picker Title="{x:Static resources:AppResources.Product}" ItemsSource="{Binding ItemTypes}" SelectedItem="{Binding SelectedItemType}" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" VerticalOptions="Center">
+                        <Label Text="{x:Static resources:AppResources.Price}" VerticalOptions="End" />
+                        <Entry Keyboard="Numeric" Text="{Binding Price}" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1">
+                        <Label Text="{x:Static resources:AppResources.Amount}"/>
+                        <Entry Keyboard="Numeric" Text="{Binding Amount}" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                    <Button Grid.Row="1" Grid.Column="1" Text="&#x2b;" FontFamily="{StaticResource FASolid}" Command="{Binding AddItemButtonClick}" Margin="20,10"/>
+                </Grid>
+                <ListView Grid.Row="2" ItemsSource="{Binding AddedItems}" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Margin="10,5,10,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding PriceString}"  FontSize="Medium"/>
+                                    <Label Grid.Column="2" Text="{Binding Count}"  FontSize="Medium"/>
+                                    <Label Grid.Column="4" Text="{Binding Name}"  FontSize="Medium"/>
+                                    <Button Grid.Column="8" Text="&#xf1f8;" FontFamily="{StaticResource FASolid}" Command="{Binding BindingContext.DeleteItemButtonClick, Source={x:Reference editClientOrderView}}" CommandParameter="{Binding Name}" Margin="0,0,5,0"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Grid.Row="4" Text="{Binding TotalCost}" HorizontalOptions="End" Margin="20,0" FontSize="Large"/>
+                <StackLayout Grid.Row="6" Orientation="Horizontal" Margin="20">
+                    <Button Text="{x:Static resources:AppResources.SaveButton}" Command="{Binding SaveButtonClick}" HorizontalOptions="EndAndExpand"/>
+                    <Button Text="{x:Static resources:AppResources.CancelButton}" Command="{Binding CancelButtonClick}" HorizontalOptions="End"/>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

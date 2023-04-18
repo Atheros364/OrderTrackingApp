@@ -316,7 +316,13 @@ namespace OrderTrackingApp.DAL
             {
                 using (var db = InitializeDatabase())
                 {
-                    //TODO need to either edit old orderitems or just delete and re-add
+                    Order oldItem = db.GetAllWithChildren<Order>(o => o.Id == item.Id).FirstOrDefault();
+                    if (oldItem != null && oldItem.Id == item.Id) 
+                    {
+                        DeleteOrder(oldItem);
+                        item.Id = 0;
+                        saved = CreateOrder(item);
+                    }                    
                 }
             }
             catch (Exception ex)
